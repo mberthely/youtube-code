@@ -1,16 +1,5 @@
 <div class="container">
     <h1>Applicacion de ejemplo YT</h1>
-
-    <ul>
-        <li>
-            <a [routerLink]="[ '/cliente']">Cliente</a>
-        </li>
-        <li>
-            <a [routerLink]="[ '/producto']">Productos</a>
-        </li>
-        <li>
-            <a [routerLink]="['/persona']" routerLinkActive="router-link-active">Persona</a>
-        </li>
-    </ul>
+    <app-menu></app-menu>
     <router-outlet />
 </div>
