@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import {
+  MatDialog,
+} from '@angular/material/dialog';
+import { ClienteDialogComponent } from './cliente-dialog/cliente-dialog.component';
 
 @Component({
   selector: 'app-cliente',
@@ -8,5 +12,12 @@ import { Component } from '@angular/core';
   styleUrl: './cliente.component.scss'
 })
 export class ClienteComponent {
+  readonly dialog = inject(MatDialog);
+
+  openDialog(): void {
+    this.dialog.open(ClienteDialogComponent, {
+      data: {},
+    });
+  }
 
 }
