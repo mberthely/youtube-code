@@ -27,15 +27,29 @@ import { ClienteFormComponent } from './cliente-dialog/cliente-dialog.component'
 export class ClienteComponent implements OnInit {
   displayedColumns: string[] = [
     'nombre',
+    'apellidos',
+    'direccion',
+    'email',
     'actions'];
   data: Cliente[] = [];
 
   constructor(
     // private dataService: ClienteService,
-     private dialog: MatDialog) { }
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.loadDummyData();
     this.getData();
+  }
+
+  loadDummyData() {
+    this.data.push(
+      { nombre: 'John', apellidos: 'Doe', direccion: '1 Ave', email: 'john@example.com' },
+      { nombre: 'John', apellidos: 'Doe', direccion: '1 Ave', email: 'john@example.com' },
+      { nombre: 'John', apellidos: 'Doe', direccion: '1 Ave', email: 'john@example.com' },
+      { nombre: 'John', apellidos: 'Doe', direccion: '1 Ave', email: 'john@example.com' },
+      { nombre: 'John', apellidos: 'Doe', direccion: '1 Ave', email: 'john@example.com' },
+    )
   }
 
   getData() {
