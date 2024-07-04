@@ -1,16 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-calculadora',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './calculadora.component.html',
   styleUrl: './calculadora.component.scss'
 })
 export class CalculadoraComponent implements OnInit {
 
   public operador = "";
-  public resultado = 0;
   public valorNumericoPrimario = 0;
   public valorNumericoSecundario = 0;
   public valorPrimarioActivo = true;
@@ -43,8 +43,28 @@ export class CalculadoraComponent implements OnInit {
 
   mostrarResultado() {
     if (this.operador === '+') {
-      this.resultado = this.valorNumericoPrimario + this.valorNumericoSecundario;
+      this.valorNumericoPrimario = this.valorNumericoPrimario + this.valorNumericoSecundario;
     }
 
+    if (this.operador === '-') {
+      this.valorNumericoPrimario = this.valorNumericoPrimario - this.valorNumericoSecundario;
+    }
+
+    if (this.operador === '/') {
+      this.valorNumericoPrimario = this.valorNumericoPrimario / this.valorNumericoSecundario;
+    }
+
+    if (this.operador === '*') {
+      this.valorNumericoPrimario = this.valorNumericoPrimario * this.valorNumericoSecundario;
+    }
+
+    this.valorPrimarioActivo = true;
+  }
+
+  reset() {
+    this.operador = "";
+    this.valorNumericoPrimario = 0;
+    this.valorNumericoSecundario = 0;
+    this.valorPrimarioActivo = true;
   }
 }
