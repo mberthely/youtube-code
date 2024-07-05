@@ -1,22 +1,30 @@
 <h2>Calculadora</h2>
-<h3 *ngIf="valorPrimarioActivo">{{ valorNumericoPrimario }} {{operador}}</h3>
-<h3 *ngIf="!valorPrimarioActivo">{{ valorNumericoSecundario }} {{operador}}</h3>
 <div style="width: 400px;">
+    <h1 style="text-align: right;" *ngIf="valorPrimarioActivo">{{ valorNumericoPrimario }} {{operador}}</h1>
+    <h1 style="text-align: right;" *ngIf="!valorPrimarioActivo">{{ valorNumericoSecundario }} {{operador}}</h1>
+
+    <button class="boton" (click)="reset()">C</button>
+    <button class="boton" (click)="cambioDeSigno()">+/-</button>
+    <button class="boton" (click)="reset()">%</button>
+    <button class="boton" (click)="presionarOperador('/')">/</button>
+
     <button class="boton" (click)="presionarNumero(7)">7</button>
     <button class="boton" (click)="presionarNumero(8)">8</button>
     <button class="boton" (click)="presionarNumero(9)">9</button>
-    <button class="boton" (click)="presionarOperador('+')">+</button>
+    <button class="boton" (click)="presionarOperador('*')">X</button>
+
     <button class="boton" (click)="presionarNumero(4)">4</button>
     <button class="boton" (click)="presionarNumero(5)">5</button>
     <button class="boton" (click)="presionarNumero(6)">6</button>
     <button class="boton" (click)="presionarOperador('-')">-</button>
+
     <button class="boton" (click)="presionarNumero(1)">1</button>
     <button class="boton" (click)="presionarNumero(2)">2</button>
     <button class="boton" (click)="presionarNumero(3)">3</button>
-    <button class="boton" (click)="presionarOperador('/')">/</button>
-    <button class="boton" (click)="reset()">C</button>
-    <button class="boton" (click)="presionarNumero(0)">0</button>
+    <button class="boton" (click)="presionarOperador('+')">+</button>
+
+    <button class="botonDoble" (click)="presionarNumero(0)">0</button>
+    <button class="boton" (click)="presionarPunto()">.</button>
     <button class="boton" (click)="mostrarResultado()">=</button>
-    <button class="boton" (click)="presionarOperador('*')">*</button>
 
 </div>
